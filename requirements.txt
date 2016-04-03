@@ -1,8 +1,13 @@
-Django==1.9.4
+Django==1.8.1
+PyYAML==3.11
 argparse==1.2.1
+biplist==1.0.1
+defusedxml==0.4.1
 django-tastypie==0.13.3
-mongoengine==0.10.6
-pymongo==3.2.2
+django-tastypie-mongoengine==0.4.6
+lxml==3.6.0
+mongoengine==0.8.1
+pymongo==2.8
 python-dateutil==2.5.2
 python-mimeparse==1.5.1
 six==1.10.0
