@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<HTML>
+	<HEAD>
+		<TITLE>Behaviour</TITLE>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" >	
+	</HEAD>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+	
+	<body ng-app="demoapp">
+		<script type="text/javascript" src = "//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular.min.js"></script>
+		<script type="text/javascript" src="{% static "app/js/main.js" %}"></script>
+
+		<H1>Demo app</H1>
+		
+		<div ng-app="demoapp" ng-controller="DemoCtrl" class="container">
+			<div class="data">
+
+			</div>
+			<button ng-click="save()">click</button>
+
+		</div>
+		
+
+	</body>
+</HTML>

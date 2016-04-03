@@ -1,26 +1,20 @@
-from __future__ import unicode_literals
-from django.db import models
-from mongoengine import *
+import mongoengine
+import datetime
 
-class User(document):
-	student_id = StringField(required=True)
-	name = StringField(required=True)
-	age = StringField(required=True)
-	student_class = StringField(required=True)
+class Students(mongoengine.Document):
+	name = mongoengine.StringField(required=True)
+	age = mongoengine.StringField(required=True)
+	student_class = mongoengine.StringField(required=True)
 
-	def __unicode__(self):
-		return "%s"%(self.name)
+class Attendance(mongoengine.Document):
+	student_id = mongoengine.StringField(required=True)
+	date = mongoengine.DateTimeField(default=datetime.datetime.now)
 
-class Attendance(document):
-	student_id = StringField(required=True)
-	date = DateTimeField(default=datetime.datetime.now)
+class Points(mongoengine.Document):
+	student_id = mongoengine.StringField(required=True)
+	points_obtained = mongoengine.StringField(required=True)
+	date = mongoengine.DateTimeField(default=datetime.datetime.now)
 
-class Points(document):
-	student_id = StringField(required=True)
-	points_obtained = StringField(required=True)
-	date = DateTimeField(default=datetime.datetime.now)
-
-class Behaviour(document):
-	behavious_name = StringField(required=True)
-	points = StringField(required=True)
-
+class Behaviour(mongoengine.Document):
+	behaviour_name = mongoengine.StringField(required=True)
+	points = mongoengine.StringField(required=True)
