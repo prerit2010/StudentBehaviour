@@ -68,9 +68,8 @@
 					            <td>{{student.age}}</td>
 					            <td>
 					            	<div class="col-md-5">
-							            <select class="form-control">
-							            	<option value="0" label="Please Select"></option>
-											<option ng-repeat="behaviour in behaviours">{{behaviour.behaviour_name}} ({{behaviour.points}})</option>
+							           	<select ng-model="selectedOption" name="behaviour_select" ng-options="behaviour.behaviour_name for behaviour in behaviours" ng-click="itemSelected(student.id, selectedOption.points)" class="form-control">
+							           		<option value="">Mark Behaviour</option>
 							           	</select>
 						           	</div>		      
 				            	</td>
@@ -80,8 +79,6 @@
 					</table>
 				</div>
 			</div>
-		
-		
 		</div>
 	</body>
 </HTML>
