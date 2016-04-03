@@ -1,18 +1,37 @@
 (function(){
-	var app = angular.module('demoapp', [ ]);
+	var app = angular.module('app', [ ]);
 
 
-app.controller('DemoCtrl', ['$scope', function($scope){
+app.controller('DemoCtrl', function ($scope, $http){
 
-	$scope.num = 0;
+	$scope.loadstudents = function(){
+		$http.get('/api/students/').then(function(response){
+			$scope.resp = response.data;
+			$scope.students = $scope.resp.objects;
+			
+		});
 
-	$scope.save = function(){
-		$(".data").html("click : " + $scope.num);
-		$scope.num += 1;
+	};
+	$scope.loadstudents();
+
+	$scope.selected_item = "Mark Behaviour";
+
+	$scope.loadbehaviour = function(){
+		$http.get('/api/behaviour/').then(function(response){
+			$scope.resp = response.data;
+			$scope.behaviours = $scope.resp.objects;
+			
+		});
+
+	};
+	$scope.loadbehaviour();
+
+	$scope.itemSelected = function(item){
+		$scope.selected_item = item;
 
 	};
 
-}]);
+});
 })();
 
 // alert("lol");

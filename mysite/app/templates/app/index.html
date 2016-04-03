@@ -6,21 +6,82 @@
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" >	
 	</HEAD>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
 	
-	<body ng-app="demoapp">
+	<body ng-app="app">
+		<div class="container">
+			<div class="row">
+				<nav class="navbar navbar-default  ">
+		    		<div class="container-fluid">
+		        		<!-- Brand and toggle get grouped for better mobile display -->
+		        
+			            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			                <span class="sr-only">Toggle navigation</span>
+			                <span class="icon-bar"></span>
+			                <span class="icon-bar"></span>
+			                <span class="icon-bar"></span>
+			            </button>
+			            <a class="navbar-brand" href="/">Behaviour</a>
+			        
+
+		        <!-- Collect the nav links, forms, and other content for toggling -->
+				        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				            <ul class="nav navbar-nav navbar-right">
+				                <li>
+				                    <a href="/">Home</a>
+				                </li>
+				                <li>
+				                    <a href="/about/">About</a>
+				                </li>
+				                <li>
+				                    <a href="/write_blog/">Report</a>
+				                </li>
+				                
+				            </ul>
+				        </div>
+		        			<!-- /.navbar-collapse -->
+		   			</div>
+		    		<!-- /.container -->
+				</nav>
+			</div>
+
 		<script type="text/javascript" src = "//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular.min.js"></script>
 		<script type="text/javascript" src="{% static "app/js/main.js" %}"></script>
 
-		<H1>Demo app</H1>
-		
-		<div ng-app="demoapp" ng-controller="DemoCtrl" class="container">
-			<div class="data">
-
+			<div class="row">
+				<div ng-controller="DemoCtrl" class="container">
+					<H1 class="text-center">Mark Behaviour</H1>
+					<table class="table table-striped">
+					    <thead>
+					        <tr>
+					            <th>Name</th>
+					            <th>Class</th>
+					            <th>Age</th>
+					            <th>Behaviour</th>
+					        </tr>
+					    </thead>
+					    <tbody>
+					    	{% verbatim %}
+					        <tr ng-repeat="student in students">
+					            <td>{{student.name}}</td>
+					            <td>{{student.student_class}}</td>
+					            <td>{{student.age}}</td>
+					            <td>
+					            	<div class="col-md-5">
+							            <select class="form-control">
+							            	<option value="0" label="Please Select"></option>
+											<option ng-repeat="behaviour in behaviours">{{behaviour.behaviour_name}} ({{behaviour.points}})</option>
+							           	</select>
+						           	</div>		      
+				            	</td>
+				        	</tr>
+				     		{% endverbatim %}
+				    	</tbody>
+					</table>
+				</div>
 			</div>
-			<button ng-click="save()">click</button>
-
-		</div>
 		
-
+		
+		</div>
 	</body>
 </HTML>
